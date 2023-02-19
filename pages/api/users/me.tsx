@@ -17,14 +17,19 @@ async function handler(
     res : NextApiResponse<ResponseType> 
 ){
     
-    console.log("User in Session is : ",req.session.user)
+    console.log("User in Session is : ",req.session)
     res.json({
         ok: true,
         
     })
+    
 }
 
 export default withIronSessionApiRoute(withHandler("GET", handler),{
-    cookieName : 'carrotsession',
+    cookieName : 'carrot-session',
     password : "asddasdasdadasdasdasadsdasdasdasasdfdsfdsfdsdfsdsdsadsaadsadsdasadsadsadsdasadsdasdas",
+    cookieOptions : {
+        httpOnly : false,
+        secure : false
+    }
 })

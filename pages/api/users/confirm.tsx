@@ -40,5 +40,9 @@ async function handler(
 }
 export default withIronSessionApiRoute(withHandler("POST", handler), {
     cookieName : "carrot-session",
-    password : "9845904809485098594385093840598df;slkgjfdl;gkfsdjg;ldfksjgdsflgjdfklgjdflgjflkgjdgd"
+    password : "9845904809485098594385093840598df;slkgjfdl;gkfsdjg;ldfksjgdsflgjdfklgjdflgjflkgjdgd",
+    cookieOptions : {
+        httpOnly : false,
+        secure : false
+    }
 })
